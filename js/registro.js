@@ -70,4 +70,38 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtiene el formulario de entrada de datos de paciente desde el documento HTML
     const patientForm = document.getElementById("patientForm");
 
-    // Agrega un evento de escucha al formulario para capturar la información del
+    // Agrega un evento de escucha al formulario para capturar la información del paciente cuando se envía
+    patientForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // Evita que el formulario se envíe normalmente y recargue la página
+
+        // Obtiene los valores de entrada del formulario
+        const nombre = document.getElementById("nombre").value;
+        const fechaNacimiento = document.getElementById("fechaNacimiento").value;
+        const departamento = document.getElementById("departamento").value;
+        const municipio = document.getElementById("municipio").value;
+        const tipoDocumento = document.getElementById("tipoDocumento").value;
+        const numeroDocumento = document.getElementById("numeroDocumento").value;
+        const telefono = document.getElementById("telefono").value;
+        const motivoConsulta = document.getElementById("motivoConsulta").value;
+
+        // Crea un objeto Paciente con los valores ingresados
+        const paciente = new Paciente(
+            nombre,
+            fechaNacimiento,
+            departamento,
+            municipio,
+            tipoDocumento,
+            numeroDocumento,
+            telefono,
+            motivoConsulta
+        );
+
+        // Llama a la función guardarPaciente para almacenar el nuevo paciente en el almacenamiento local
+        guardarPaciente(paciente);
+        // Llama a la función mostrarPacientes para actualizar la tabla de pacientes en la página
+        mostrarPacientes();
+
+        // Limpia el formulario después de guardar el paciente
+        patientForm.reset();
+    });
+});
