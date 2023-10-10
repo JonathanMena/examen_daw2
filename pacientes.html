@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pacientes</title>
+</head>
+<body>
+    <h1>Registro de Pacientes</h1>
+    <form id="patientForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="text" id="fechaNacimiento" placeholder="dd/mm/aaaa" required><br>
+
+        <label for="direccion">Dirección:</label>
+        <select id="departamento" required>
+            <option value="San Salvador">San Salvador</option>
+            <option value="San Miguel">San Miguel</option>
+            <option value="La Libertad">La Libertad</option>
+        </select>
+        <select id="municipio" required>
+            <option value="San Salvador">San Salvador</option>
+            <option value="San Miguel">San Miguel</option>
+            <option value="La Libertad">La Libertad</option>
+        </select><br>
+
+        <label for="tipoDocumento">Tipo de Documento:</label>
+        <select id="tipoDocumento" required>
+            <option value="DUI">DUI</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select><br>
+
+        <label for="numeroDocumento">Número de Documento:</label>
+        <input type="text" id="numeroDocumento" required><br>
+
+        <label for="telefono">Número de Teléfono:</label>
+        <input type="text" id="telefono" required><br>
+
+        <label for="motivoConsulta">Motivo de Consulta:</label>
+        <textarea id="motivoConsulta" required></textarea><br>
+
+        <button type="submit">Registrar Paciente</button>
+    </form>
+
+    <h2>Lista de Pacientes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Dirección</th>
+                <th>Tipo de Documento</th>
+                <th>Número de Documento</th>
+                <th>Número de Teléfono</th>
+                <th>Motivo de Consulta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="patientList"></tbody>
+    </table>
+
+    <script src="js/registro.js"></script>
+</body>
+</html>
